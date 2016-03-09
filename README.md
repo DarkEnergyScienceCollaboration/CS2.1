@@ -1,4 +1,4 @@
-#  Identify relevant galaxy properties
+#  Define the schema required for input catalogs
 
 Summary -- There currently exists a schema for all components needed by CatSim for generating simulated
 observed catalogs as well as inputs to both PhoSim and GalSim. This schema should be reviewed to make sure it

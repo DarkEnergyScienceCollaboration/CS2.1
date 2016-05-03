@@ -1,7 +1,7 @@
 =================  ==========  =======
 Quantity           Units       Comment
 =================  ==========  =======
-ID                 int          A unique identifier for every galaxy in the catalog.
+ID                 int         A unique identifier for every galaxy in the catalog.
                                This identifier will be shared by all of the components
                                (bulge,disk,agn etc.) of a given galaxy even if those
                                components are stored in different tables.

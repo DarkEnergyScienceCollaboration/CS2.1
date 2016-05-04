@@ -180,10 +180,10 @@ results of their analysis tools).
 |                   |            |                | flux from the galaxy's bulge| will not sum to unity in the       |
 |                   |            |                | to the total bolometric flux| presence of an AGN.                |
 |                   |            |                | of the galaxy.              |                                    |
-+-------------------+------------+----------------+-----------------------------+                                    |
-| Disk_to_total     | float      | Truth          | Ratio of the bolometric flux|                                    |
-|                   |            |                | from the galaxy's disk to   |                                    |
-|                   |            |                | the total bolometric flux of|                                    |
++-------------------+------------+----------------+-----------------------------+ What do we mean by 'bolometric'?   |
+| Disk_to_total     | float      | Truth          | Ratio of the bolometric flux| Just in the range of LSST          |
+|                   |            |                | from the galaxy's disk to   | bandpasses?  In a single LSST      |
+|                   |            |                | the total bolometric flux of| bandpass?  Restframe or observed?  |
 |                   |            |                | the galaxy.                 |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to |                                    |

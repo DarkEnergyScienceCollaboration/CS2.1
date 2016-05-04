@@ -1,6 +1,6 @@
-=================  ==========  =======
+=================  ==========  ==========================================================
 Quantity           Units       Comment
-=================  ==========  =======
+=================  ==========  ==========================================================
 ID                 int         A unique identifier for every galaxy in the catalog.
                                This identifier will be shared by all of the components
                                (bulge,disk,agn etc.) of a given galaxy even if those
@@ -102,4 +102,4 @@ Barycentric_RA     degrees     ICRS.  Defined according to the system's center
                                of mass.
 Barycentric_Dec    degrees     ICRS.  Defined according to the system's center
                                of mass.
-=================  ==========  =======
+=================  ==========  ==========================================================

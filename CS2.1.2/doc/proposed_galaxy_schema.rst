@@ -133,7 +133,7 @@
 | Bulge_to_total    | float      | Truth          | Ratio of the bolometric     | Bulge_to_total and Disk_to_total   |
 |                   |            |                | flux from the galaxy's bulge| will not sum to unity in the       |
 |                   |            |                | to the total bolometric flux| presence of an AGN.                |
-|                   |            |                |of the galaxy.               |                                    |
+|                   |            |                | of the galaxy.              |                                    |
 +-------------------+------------+----------------+-----------------------------+                                    |
 | Disk_to_total     | float      | Truth          | Ratio of the bolometric flux|                                    |
 |                   |            |                | from the galaxy's disk to   |                                    |

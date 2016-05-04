@@ -12,11 +12,28 @@ results of their analysis tools).
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Quantity          | Units      | Truth/Observed | Definition                  | Comment                            |
 +===================+============+================+=============================+====================================+
-| ID                | int        | Observed       | A unique identifier for     | This identifier will be shared by  |
-|                   |            |                | every galaxy in the catalog.| all of the component (bulge, disk, |
-|                   |            |                |                             | agn, etc.) of a given galaxy, even |
-|                   |            |                |                             | if those componetns are stored in  |
-|                   |            |                |                             | different tables.                  |
+| ID                | int        | Observed       | A unique identifier for     | We must determine how to handle    |
+|                   |            |                | every galaxy in the catalog.| unique IDs in the case of compound |
+|                   |            |                |                             | systems (both multi-component      |
+|                   |            |                |                             | galaxies and multiply-lensed       |
+|                   |            |                |                             | images).  The two most             |
+|                   |            |                |                             | straightforward options are:       |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | 1) Deliver multiple tables/files.  |
+|                   |            |                |                             | One file for each component (and   |
+|                   |            |                |                             | one for the aggregate system).     |
+|                   |            |                |                             | Each component of a single system  |
+|                   |            |                |                             | will reside in a different table.  |
+|                   |            |                |                             | Components of the same system will |
+|                   |            |                |                             | share an ID across tables.         |
+|                   |            |                |                             | **The idea of an aggregate system  |
+|                   |            |                |                             | does not make sense for multiply-  |
+|                   |            |                |                             | lensed images.**                   |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | 2) In addition to ID, each object  |
+|                   |            |                |                             | will contain a ParentID linking it |
+|                   |            |                |                             | to its sibling components and (if  |
+|                   |            |                |                             | applicable) the aggregate system.  |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
 |                   |            |                | flux-weighted centroid of   |                                    |

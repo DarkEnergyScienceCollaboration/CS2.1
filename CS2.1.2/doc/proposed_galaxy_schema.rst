@@ -34,6 +34,11 @@ results of their analysis tools).
 |                   |            |                |                             | will contain a ParentID linking it |
 |                   |            |                |                             | to its sibling components and (if  |
 |                   |            |                |                             | applicable) the aggregate system.  |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | We may also want to keep track of  |
+|                   |            |                |                             | the halo ID from the simulation so |
+|                   |            |                |                             | that users can reconstruct the     |
+|                   |            |                |                             | merger history if they want.       |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
 |                   |            |                | flux-weighted centroid of   |                                    |

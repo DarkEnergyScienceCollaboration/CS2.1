@@ -24,24 +24,24 @@ Luminosity Dist.   Mpc         This is truth information that allows uses to
 Sersic index       float       Every component of the galaxy will be fit to a
                                Sersic profile.  The aggregate galaxy will also
                                be represented by the best-fit Sersic index for
-                               the whole System.  *It has been pointed out that
+                               the whole System.  **It has been pointed out that
                                the Sersic index of the entire system is
                                unphysical.  It may be worth exploring the use
                                of different profiles (mixture of Gaussians,
                                Moffatt profiles etc.) if they are not too
-                               burdensome for simulators to deliver.*
+                               burdensome for simulators to deliver.**
 
 Semi-major axis    milli-      The observed semi-major axis of the
-                   arcseconds  galaxy. *PhoSim works in arcseconds
+                   arcseconds  galaxy. **PhoSim works in arcseconds
                                rather than milli-arcseconds.  This
                                may be a more natural choice for
-                               units.*
+                               units.**
 
 Semi-minor axis    milli-      The observed semi-minor axis of the
-                   arcseconds  galaxy.  *PhoSim works in arcseconds
+                   arcseconds  galaxy.  **PhoSim works in arcseconds
                                rather than milli-arcseconds.  This
                                may be a more natural choise for
-                               units.*
+                               units.**
 
 Position Angle     degrees     Rotation of the semi-major axis
                                eastward of North.
@@ -62,11 +62,11 @@ Extinction model   str         Model of extinction inside the galaxy (or
 
 SED                str         Some way that catalog generation code can
                                associate the galaxy/galaxy component with
-                               an SED.  *We may end up needing to support
+                               an SED.  **We may end up needing to support
                                SED basis functions in which case we would
                                need to specify the library of basis
                                functions and a list of weights used to
-                               recreate the SED.*
+                               recreate the SED.**
 
 Normalization      magnitudes  Some way to normalize the SED.  The current
                                scheme in CatSim is to store the rest-frame
@@ -82,11 +82,11 @@ Mass_stellar       Solar       The mass of stars in the galaxy, galaxy
                    masses      component.
 
 Mass_halo          Solar       The mass of the dark matter halo of the
-                   masses      galaxy, galaxy component.  *It has been
+                   masses      galaxy, galaxy component.  **It has been
                                pointed out that not all simulations might
                                be able to deliver these masses in which
                                case they may not belong in the minimal
-                               schema.*
+                               schema.**
 
 u_ab               AB          Extincted by internal dust.  Unextincted by
                    magnitudes  Milky Way.  Includes mean AGN flux.

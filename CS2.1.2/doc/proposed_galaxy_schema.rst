@@ -194,3 +194,10 @@ results of their analysis tools).
 | Barycentric_Dec   | degrees    | Truth          | ICRS.  Defined according to |                                    |
 |                   | (decimal)  |                | the system's center of mass.|                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
+
+Other quantities we might want to consider supporting:
+
+- Halo mass profile parameters
+- Distance from center of dark matter halo
+- Other characterizations of a galaxy's environment
+- Shear parameters (as defined/interpreted by PhoSim)

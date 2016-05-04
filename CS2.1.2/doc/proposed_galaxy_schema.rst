@@ -75,9 +75,15 @@ results of their analysis tools).
 |                   |            |                |                             | be a more natural choice for       |
 |                   |            |                |                             | units.                             |
 +-------------------+------------+----------------+-----------------------------+                                    |
-| Semi-minor axis   | milli-     | Observed       | The observed semi-minor     |                                    |
-|                   | arcseconds |                | axis of the galaxy.         |                                    |
+| Semi-minor axis   | milli-     | Observed       | The observed semi-minor     | We need to define where these axes |
+|                   | arcseconds |                | axis of the galaxy.         | are defined (i.e. at a certain     |
+|                   |            |                |                             | isophote?).                        |
 |                   |            |                |                             |                                    |
+|                   |            |                |                             | Elisa Chisari suggests we store    |
+|                   |            |                |                             | several sets of axes at several    |
+|                   |            |                |                             | isophotes so that we can           |
+|                   |            |                |                             | interpolate a realistic luminosity |
+|                   |            |                |                             | profile.                           |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                                    |
 |                   | (decimal)  |                | axis eastward of North.     |                                    |

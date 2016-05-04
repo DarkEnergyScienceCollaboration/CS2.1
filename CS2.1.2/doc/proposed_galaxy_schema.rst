@@ -16,11 +16,6 @@
 |                   |            | both the Hubble flow and any peculiar motion of the      |
 |                   |            | galaxy.                                                  |
 +-------------------+------------+----------------------------------------------------------+
-| Luminosity Dist.  | Mpc        | This is truth information that allows users to           |
-|                   |            | disentangle redshift due to proper motion from redshift  |
-|                   |            | due to the Hubble flow (assuming they know the true      |
-|                   |            | cosmology).                                              |
-+-------------------+------------+----------------------------------------------------------+
 | Sersic index      | float      | Every component of the galaxy will be fit to a Sersic    |
 |                   |            | profile.  The aggregate galaxy will also be represented  |
 |                   |            | by the best-fit Sersic index for the whole system.  **It |
@@ -39,9 +34,6 @@
 |                   |            | may be a more natural choise for units.**                |
 +-------------------+------------+----------------------------------------------------------+
 | Position Angle    | degrees    | Rotation of the semi-major axis eastward of North.       |
-+-------------------+------------+----------------------------------------------------------+
-| Inclination Angle | degrees    | Inclination of the galaxy (or galaxy component) relative |
-|                   |            | to the line of sight.                                    |
 +-------------------+------------+----------------------------------------------------------+
 | Av                | magnitudes | Extinction due to dust in the galaxy/galaxy component.   |
 +-------------------+------------+----------------------------------------------------------+
@@ -62,17 +54,6 @@
 |                   |            | system that PhoSim uses.  Unfortunately, it fails in the |
 |                   |            | case where the SED has zero flux at 500nm.               |
 +-------------------+------------+----------------------------------------------------------+
-| Mass_gas          | Solar      | The mass of the gas in the galaxy/galaxy component.      |
-|                   | masses     |                                                          |
-+-------------------+------------+----------------------------------------------------------+
-| Mass_stellar      | Solar      | The mass of stars in the galaxy/galaxy component.        |
-|                   | masses     |                                                          |
-+-------------------+------------+----------------------------------------------------------+
-| Mass_halo         | Solar      | The mass of the dark matter halo of the galaxy/galaxy    |
-|                   | masses     | component.  **It has been pointed out that not all       |
-|                   |            | simulations might be able to deliver these masses, in    |
-|                   |            | which case they may not belong in the minimal schema.**  |
-+-------------------+------------+----------------------------------------------------------+
 | u_ab              | AB         | Extincted by internal dust.  Unextincted by the Milky    |
 |                   | magnitudes | Way.  Includes mean AGN flux.                            |
 +-------------------+------------+----------------------------------------------------------+
@@ -91,14 +72,6 @@
 | y_ab              | AB         | Extincted by internal dust.  Unextincted by              |
 |                   | magnitudes | Milky Way.  Includes mean AGN flux.                      |
 +-------------------+------------+----------------------------------------------------------+
-| Bulge_to_total    | float      | Ratio of the bolometric flux from the galaxy's bulge to  |
-|                   |            | the total bolometric flux of the galaxy.                 |
-+-------------------+------------+----------------------------------------------------------+
-| Disk_to_total     | float      | Ratio of the bolometric flux from the galaxy's disk to   |
-|                   |            | the total bolometric flux of the galaxy.  Note:          |
-|                   |            | Bulge_to_total and Disk_to_total will not sum to unity   |
-|                   |            | in the presence of an AGN.                               |
-+-------------------+------------+----------------------------------------------------------+
 | Point_source_SED  | str        | Some means of identifying the SED of a point source (e.g |
 |                   |            | an AGN) associated with the galaxy/galaxy component.     |
 |                   |            | The same caveats apply here as applied to the SED column |
@@ -107,6 +80,33 @@
 | Point_source_norm | magnitudes | Some way to normalize the point source SED.  The same    |
 |                   |            | caveats apply here as applied to the normalization of    |
 |                   |            | the entire galaxy's SED.                                 |
++-------------------+------------+----------------------------------------------------------+
+| Inclination Angle | degrees    | Inclination of the galaxy (or galaxy component) relative |
+|                   |            | to the line of sight.                                    |
++-------------------+------------+----------------------------------------------------------+
+| Luminosity Dist.  | Mpc        | This is truth information that allows users to           |
+|                   |            | disentangle redshift due to proper motion from redshift  |
+|                   |            | due to the Hubble flow (assuming they know the true      |
+|                   |            | cosmology).                                              |
++-------------------+------------+----------------------------------------------------------+
+| Mass_gas          | Solar      | The mass of the gas in the galaxy/galaxy component.      |
+|                   | masses     |                                                          |
++-------------------+------------+----------------------------------------------------------+
+| Mass_stellar      | Solar      | The mass of stars in the galaxy/galaxy component.        |
+|                   | masses     |                                                          |
++-------------------+------------+----------------------------------------------------------+
+| Mass_halo         | Solar      | The mass of the dark matter halo of the galaxy/galaxy    |
+|                   | masses     | component.  **It has been pointed out that not all       |
+|                   |            | simulations might be able to deliver these masses, in    |
+|                   |            | which case they may not belong in the minimal schema.**  |
++-------------------+------------+----------------------------------------------------------+
+| Bulge_to_total    | float      | Ratio of the bolometric flux from the galaxy's bulge to  |
+|                   |            | the total bolometric flux of the galaxy.                 |
++-------------------+------------+----------------------------------------------------------+
+| Disk_to_total     | float      | Ratio of the bolometric flux from the galaxy's disk to   |
+|                   |            | the total bolometric flux of the galaxy.  Note:          |
+|                   |            | Bulge_to_total and Disk_to_total will not sum to unity   |
+|                   |            | in the presence of an AGN.                               |
 +-------------------+------------+----------------------------------------------------------+
 | Barycentric_RA    | degrees    | ICRS.  Defined according to the system's center of mass. |
 +-------------------+------------+----------------------------------------------------------+

@@ -19,8 +19,8 @@ results of their analysis tools).
 |                   |            |                |                             | images).  The two most             |
 |                   |            |                |                             | straightforward options are:       |
 |                   |            |                |                             |                                    |
-|                   |            |                |                             | 1) Deliver multiple tables/files.  |
-|                   |            |                |                             | One file for each component (and   |
+|                   |            |                |                             | 1) Deliver multiple tables/files,  |
+|                   |            |                |                             | one file for each component (and   |
 |                   |            |                |                             | one for the aggregate system).     |
 |                   |            |                |                             | Each component of a single system  |
 |                   |            |                |                             | will reside in a different table.  |

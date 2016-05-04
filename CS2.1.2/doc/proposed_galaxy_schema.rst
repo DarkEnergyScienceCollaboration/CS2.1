@@ -24,7 +24,7 @@
 | Sersic index      | float      | Every component of the galaxy will be fit to a Sersic    |
 |                   |            | profile.  The aggregate galaxy will also be represented  |
 |                   |            | by the best-fit Sersic index for the whole system.  **It |
-|                   |            | has been pointed out that the Sersicindex of the entire  |
+|                   |            | has been pointed out that the Sersic index of the entire  |
 |                   |            | system will be a poor fit.  It may be worth exploring    |
 |                   |            | the use of different profiles (mixtures of Gaussians,    |
 |                   |            | Moffatt profiles etc.) if they are not too burdensome    |

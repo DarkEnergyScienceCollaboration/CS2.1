@@ -144,12 +144,13 @@ results of their analysis tools).
 |                   |            |                | relative to the line of     |                                    |
 |                   |            |                | sight.                      |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
-| Luminosity        | Mpc        | Truth          |                             | This is truth information that     |
-| Distance          |            |                |                             | allows users to disentangle        |
+| Cosmological      | float      | Truth          | Heliocentric redshift due   | This is truth information that     |
+| Redshift          |            |                | only to the Hubble flow.    | allows users to disentangle        |
 |                   |            |                |                             | redshift due to proper motion from |
-|                   |            |                |                             | redshift due to the Hubble flow    |
-|                   |            |                |                             | (assuming they know the true       |
-|                   |            |                |                             | cosmology).                        |
+|                   |            |                |                             | redshift due to the Hubble flow.   |
+|                   |            |                |                             | We must be careful to make it      |
+|                   |            |                |                             | clear how this differs from the    |
+|                   |            |                |                             | total redshift column.             |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Mass_gas          | Solar      | Truth          | The mass of the gas in the  | It has been pointed out that not   |
 |                   | masses     |                | galaxy/galaxy component.    | all simulations might be able to   |

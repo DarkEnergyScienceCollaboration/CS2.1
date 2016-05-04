@@ -63,12 +63,12 @@ results of their analysis tools).
 |                   |            |                |                             | index for the whoel system.  It    |
 |                   |            |                |                             | has been pointed out that the      |
 |                   |            |                |                             | Sersic index of the entire system  |
-|                   |            |                |                             | will be a poor fit.  It may be     |
-|                   |            |                |                             | worth exploring the use of         |
-|                   |            |                |                             | different profiles (mixtures of    |
-|                   |            |                |                             | Gaussians, Moffatt profiles, etc.) |
-|                   |            |                |                             | if they are not too burdensome for |
-|                   |            |                |                             | simulators to deliver.             |
+|                   |            |                |                             | will be a poor fit.                |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | Adrian Pope has volunteered to     |
+|                   |            |                |                             | research different profiles and    |
+|                   |            |                |                             | how easily they can be transformed |
+|                   |            |                |                             | into observable quantities.        |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Semi-major axis   | milli-     | Observed       | The observed semi-major     | PhoSim works in arcseconds rather  |
 |                   | arcseconds |                | axis of the galaxy.         | than milli-arcseconds.  This may   |

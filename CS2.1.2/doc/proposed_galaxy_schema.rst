@@ -41,12 +41,12 @@ results of their analysis tools).
 |                   |            |                |                             | merger history if they want.       |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
-|                   |            |                | flux-weighted centroid of   |                                    |
+|                   | (decimal)  |                | flux-weighted centroid of   |                                    |
 |                   |            |                | the galaxy or galaxy        |                                    |
 |                   |            |                | component.                  |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Dec               | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
-|                   |            |                | flux-weighted centroid of   |                                    |
+|                   | (decimal)  |                | flux-weighted centroid of   |                                    |
 |                   |            |                | the galaxy or galaxy        |                                    |
 |                   |            |                | component.                  |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
@@ -80,7 +80,7 @@ results of their analysis tools).
 |                   |            |                |                             |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                                    |
-|                   |            |                | axis eastward of North.     |                                    |
+|                   | (decimal)  |                | axis eastward of North.     |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Av                | magnitudes | Observed       | Extinction due to dust in   |                                    |
 |                   |            |                | the galaxy/galaxy component.|                                    |
@@ -140,7 +140,7 @@ results of their analysis tools).
 |                   |            |                |                             | the entire galaxy's SED.           |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Inclination Angle | degrees    | Truth          | Inclination of the galaxy   |                                    |
-|                   |            |                | (or galaxy component)       |                                    |
+|                   | (decimal)  |                | (or galaxy component)       |                                    |
 |                   |            |                | relative to the line of     |                                    |
 |                   |            |                | sight.                      |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
@@ -174,8 +174,8 @@ results of their analysis tools).
 |                   |            |                | the galaxy.                 |                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to |                                    |
-|                   |            |                | the system's center of mass.|                                    |
+|                   | (decimal)  |                | the system's center of mass.|                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Barycentric_Dec   | degrees    | Truth          | ICRS.  Defined according to |                                    |
-|                   |            |                | the system's center of mass.|                                    |
+|                   | (decimal)  |                | the system's center of mass.|                                    |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+

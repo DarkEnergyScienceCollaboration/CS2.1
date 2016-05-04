@@ -198,4 +198,5 @@ Other quantities we might want to consider supporting:
 - Halo mass profile parameters
 - Distance from center of dark matter halo
 - Other characterizations of a galaxy's environment
+- Some way to associate clusters of galaxies with each other
 - Shear parameters (as defined/interpreted by PhoSim)

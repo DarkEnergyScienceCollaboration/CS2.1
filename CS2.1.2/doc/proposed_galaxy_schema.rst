@@ -1,4 +1,13 @@
-This is a header
+This schema is meant to provide definitions for quantities we expect simulated catalogs to contain.  Not every
+catalog will contain every quantity in this schema, however, when they do, we hope that they will adhere to the
+definitions below.  Put another way: a catalog may not characterize the shapes of galaxies, but if it does, it will
+do so as specified below.  The schema is agnostic to the question of how the data is delivered (it can be a database,
+a text file, a FITS file, or something else unthought of).  The schema merely speaks to the contents of the files
+being delivered.  This is so that DESC science working groups can write their software tools confident in what inputs
+they will be receiving.  Quantities are marked as either 'Observed' (in which case they are quantities that we expect
+science working groups to be able to use directly at the catalog level) or 'Truth' (in which case they represent
+physical truth which may be unobservable, but which we are delivering so that working groups can validate the
+results of their analysis tools).
 
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Quantity          | Units      | Truth/Observed | Definition                  | Comment                            |

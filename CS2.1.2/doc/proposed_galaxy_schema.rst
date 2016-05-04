@@ -105,6 +105,12 @@ results of their analysis tools).
 |                   |            |                | component with an SED.      | library of basis functions and     |
 |                   |            |                |                             | a list of weights used to recreate |
 |                   |            |                |                             | the SED.                           |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | We can also provide support for    |
+|                   |            |                |                             | multiple SED and Normalization     |
+|                   |            |                |                             | columns as a way to specify that   |
+|                   |            |                |                             | an SED is a linear combination of  |
+|                   |            |                |                             | basis functions.                   |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Normalization     | magnitudes | Observed       | Some way to normalize the   | The current scheme in CatSim is to |
 |                   |            |                | SED.                        | store the rest-frame AB magnitude  |

@@ -84,6 +84,8 @@ results of their analysis tools).
 |                   |            |                |                             | isophotes so that we can           |
 |                   |            |                |                             | interpolate a realistic luminosity |
 |                   |            |                |                             | profile.                           |
+|                   |            |                |                             |                                    |
+|                   |            |                |                             | May be bandpass dependent.         |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
 | Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                                    |
 |                   | (decimal)  |                | axis eastward of North.     |                                    |

@@ -40,11 +40,11 @@ results of their analysis tools).
 |                   |            |                |                             | that users can reconstruct the     |
 |                   |            |                |                             | merger history if they want.       |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+
-| RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
-|                   | (decimal)  |                | flux-weighted centroid of   |                                    |
+| RA                | degrees    | Observed       | ICRS.  Reckoned from the    | This could be (i.e.'technically is'|
+|                   | (decimal)  |                | flux-weighted centroid of   | bandpass dependent.                |
 |                   |            |                | the galaxy or galaxy        |                                    |
 |                   |            |                | component.                  |                                    |
-+-------------------+------------+----------------+-----------------------------+------------------------------------+
++-------------------+------------+----------------+-----------------------------+                                    |
 | Dec               | degrees    | Observed       | ICRS.  Reckoned from the    |                                    |
 |                   | (decimal)  |                | flux-weighted centroid of   |                                    |
 |                   |            |                | the galaxy or galaxy        |                                    |

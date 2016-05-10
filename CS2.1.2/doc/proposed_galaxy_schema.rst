@@ -41,6 +41,18 @@ results of their analysis tools).
 |                   |            |                |                             | that users can reconstruct the     |                 |            |          |
 |                   |            |                |                             | merger history if they want.       |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
+|**Comment:** We must determine how to handle unique IDs in the case of compound systems (both multi-component galaxies and multiply-lensed                    |
+| images).  The two most straightforward options are:                                                                                                          |
+|                                                                                                                                                              |
+| 1) Deliver multiple tables/files, one file for each component (and one for the aggregate system). Each component of a single system                          |
+| will reside in a different table. Components of the same system will share an ID across tables. **The idea of an aggregate system                            |
+| does not make sense for multiply-lensed images.**                                                                                                            |
+|                                                                                                                                                              |
+| 2) In addition to ID, each object will contain a ParentID linking it to its sibling components and (if applicable) the aggregate system.                     |
+|                                                                                                                                                              |
+| We may also want to keep track of the halo ID from the simulation so that users can reconstruct the merger history if they want.                             |
+|                                                                                                                                                              |
++-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
 | RA                | degrees    | Observed       | ICRS.  Reckoned from the    | This could be (i.e.'technically is'|                 | PhoSim     |          |
 |                   | (decimal)  |                | flux-weighted centroid of   | bandpass dependent.                |                 | required   |          |
 |                   |            |                | the galaxy or galaxy        |                                    |                 |            |          |

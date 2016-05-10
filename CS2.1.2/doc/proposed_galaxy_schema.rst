@@ -41,7 +41,7 @@ results of their analysis tools).
 |                   |            |                |                             | that users can reconstruct the     |                 |            |          |
 |                   |            |                |                             | merger history if they want.       |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-|**Comment**: We must determine how to handle unique IDs in the case of compound systems (both multi-component galaxies and multiply-lensed                    |
+| **Comment**: We must determine how to handle unique IDs in the case of compound systems (both multi-component galaxies and multiply-lensed                   |
 | images).  The two most straightforward options are:                                                                                                          |
 |                                                                                                                                                              |
 | 1) Deliver multiple tables/files, one file for each component (and one for the aggregate system). Each component of a single system                          |

@@ -17,7 +17,7 @@ results of their analysis tools).
 |                   |            |                | every galaxy in the catalog.|                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | **Comment:** We must determine how to handle unique IDs in the case of compound systems                                 |
-|(both multi-component galaxies and multiply-lensed images).  The two most straightforward options are:                   |
+| (both multi-component galaxies and multiply-lensed images).  The two most straightforward options are:                  |
 |                                                                                                                         |
 | 1) Deliver multiple tables/files, one file for each component (and one for the aggregate system). Each component of     |
 | a single system will reside in a different table. Components of the same system will share an ID across tables.         |
@@ -25,7 +25,7 @@ results of their analysis tools).
 |                                                                                                                         |
 |                                                                                                                         |
 | 2) In addition to ID, each object will contain a ParentID linking it to its sibling components and                      |
-|(if applicable) the aggregate system.                                                                                    |
+| (if applicable) the aggregate system.                                                                                   |
 |                                                                                                                         |
 | We may also want to keep track of the halo ID from the simulation so that users can reconstruct the merger              |
 | history if they want.                                                                                                   |
@@ -64,7 +64,7 @@ results of their analysis tools).
 | Semi-major axis   | milli-     | Observed       | The observed semi-major     |                 | PhoSim     |          |
 |                   | arcseconds |                | axis of the galaxy.         |                 | recommended|          |
 |                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------|                 |            |          |
++-------------------+------------+----------------+-----------------------------+                 |            |          |
 | Semi-minor axis   | milli-     | Observed       | The observed semi-minor     |                 |            |          |
 |                   | arcseconds |                | axis of the galaxy.         |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+

@@ -48,6 +48,7 @@ results of their analysis tools).
 | will reside in a different table. Components of the same system will share an ID across tables. **The idea of an aggregate system                            |
 | does not make sense for multiply-lensed images.**                                                                                                            |
 |                                                                                                                                                              |
+|                                                                                                                                                              |
 | 2) In addition to ID, each object will contain a ParentID linking it to its sibling components and (if applicable) the aggregate system.                     |
 |                                                                                                                                                              |
 | We may also want to keep track of the halo ID from the simulation so that users can reconstruct the merger history if they want.                             |

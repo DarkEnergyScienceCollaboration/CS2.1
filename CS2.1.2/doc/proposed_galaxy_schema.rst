@@ -13,8 +13,8 @@ results of their analysis tools).
 | Quantity          | Units      | Truth/Observed | Definition                  | Comment                            | Working Group   | Input      | Accuracy |
 |                   |            |                |                             |                                    | Use Case        | For...     | Required |
 +===================+============+================+=============================+====================================+=================+============+==========+
-| ID                | int        | Observed       | A unique identifier for     | We must determine how to handle    |                 |            |          |
-|                   |            |                | every galaxy in the catalog.| unique IDs in the case of compound |                 |            |          |
+| ID                | int        | Observed       | A unique identifier for     | We must determine how to handle    |                 | PhoSim     |          |
+|                   |            |                | every galaxy in the catalog.| unique IDs in the case of compound |                 | optional   |          |
 |                   |            |                |                             | systems (both multi-component      |                 |            |          |
 |                   |            |                |                             | galaxies and multiply-lensed       |                 |            |          |
 |                   |            |                |                             | images).  The two most             |                 |            |          |
@@ -41,8 +41,8 @@ results of their analysis tools).
 |                   |            |                |                             | that users can reconstruct the     |                 |            |          |
 |                   |            |                |                             | merger history if they want.       |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| RA                | degrees    | Observed       | ICRS.  Reckoned from the    | This could be (i.e.'technically is'|                 |            |          |
-|                   | (decimal)  |                | flux-weighted centroid of   | bandpass dependent.                |                 |            |          |
+| RA                | degrees    | Observed       | ICRS.  Reckoned from the    | This could be (i.e.'technically is'|                 | PhoSim     |          |
+|                   | (decimal)  |                | flux-weighted centroid of   | bandpass dependent.                |                 | required   |          |
 |                   |            |                | the galaxy or galaxy        |                                    |                 |            |          |
 |                   |            |                | component.                  |                                    |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+                                    |                 |            |          |
@@ -51,14 +51,14 @@ results of their analysis tools).
 |                   |            |                | the galaxy or galaxy        |                                    |                 |            |          |
 |                   |            |                | component.                  |                                    |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Redshift          | float      | Observed       | Observed heliocentric       |                                    |                 |            |          |
-|                   |            |                | redshift due to both the    |                                    |                 |            |          |
+| Redshift          | float      | Observed       | Observed heliocentric       |                                    |                 | PhoSim     |          |
+|                   |            |                | redshift due to both the    |                                    |                 | optional   |          |
 |                   |            |                | Hubble flow and any         |                                    |                 |            |          |
 |                   |            |                | peculiar motion of the      |                                    |                 |            |          |
 |                   |            |                | galaxy.                     |                                    |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Sersic index      | float      | Observed       | Observed best fit Sersic    | Every component of the galaxy will |                 |            |          |
-|                   |            |                | index of the galaxy's       | be fit to a Sersic profile.  The   |                 |            |          |
+| Sersic index      | float      | Observed       | Observed best fit Sersic    | Every component of the galaxy will |                 | PhoSim     |          |
+|                   |            |                | index of the galaxy's       | be fit to a Sersic profile.  The   |                 | recommended|          |
 |                   |            |                | on-sky profile.             | aggregate galaxy will also be      |                 |            |          |
 |                   |            |                |                             | represented by the best-fit Sersic |                 |            |          |
 |                   |            |                |                             | index for the whole system.  It    |                 |            |          |
@@ -74,8 +74,8 @@ results of their analysis tools).
 |                   |            |                |                             | how easily they can be transformed |                 |            |          |
 |                   |            |                |                             | into observable quantities.        |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Semi-major axis   | milli-     | Observed       | The observed semi-major     | PhoSim works in arcseconds rather  |                 |            |          |
-|                   | arcseconds |                | axis of the galaxy.         | than milli-arcseconds.  This may   |                 |            |          |
+| Semi-major axis   | milli-     | Observed       | The observed semi-major     | PhoSim works in arcseconds rather  |                 | PhoSim     |          |
+|                   | arcseconds |                | axis of the galaxy.         | than milli-arcseconds.  This may   |                 | recommended|          |
 |                   |            |                |                             | be a more natural choice for       |                 |            |          |
 |                   |            |                |                             | units.                             |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+                                    |                 |            |          |
@@ -91,22 +91,22 @@ results of their analysis tools).
 |                   |            |                |                             |                                    |                 |            |          |
 |                   |            |                |                             | May be bandpass dependent.         |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Position Angle    | degrees    | Observed       | Rotation of the semi-major  | This would also require multiple   |                 |            |          |
-|                   | (decimal)  |                | axis eastward of North.     | values at multiple isophotes.      |                 |            |          |
+| Position Angle    | degrees    | Observed       | Rotation of the semi-major  | This would also require multiple   |                 | PhoSim     |          |
+|                   | (decimal)  |                | axis eastward of North.     | values at multiple isophotes.      |                 | recommended|          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Av                | magnitudes | Observed       | Extinction due to dust in   |                                    |                 |            |          |
-|                   |            |                | the galaxy/component.       |                                    |                 |            |          |
+| Av                | magnitudes | Observed       | Extinction due to dust in   |                                    |                 | PhoSim     |          |
+|                   |            |                | the galaxy/component.       |                                    |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Rv                | magnitudes | Observed       | Reddenting due to dust in   |                                    |                 |            |          |
-|                   |            |                | the galaxy/component.       |                                    |                 |            |          |
+| Rv                | magnitudes | Observed       | Reddenting due to dust in   |                                    |                 | PhoSim     |          |
+|                   |            |                | the galaxy/component.       |                                    |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Extinction model  | str        | Observed       | Model of extinction inside  |                                    |                 |            |          |
-|                   |            |                | the galaxy (or galaxy       |                                    |                 |            |          |
+| Extinction model  | str        | Observed       | Model of extinction inside  |                                    |                 | PhoSim     |          |
+|                   |            |                | the galaxy (or galaxy       |                                    |                 | optional   |          |
 |                   |            |                | component).  Examples: CCM, |                                    |                 |            |          |
 |                   |            |                | O'Donnell,etc.              |                                    |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| SED               | str        | Observed       | Some way that catalog       | We may end up needing to support   |                 |            |          |
-|                   |            |                | generation code can         | SED basis functions, in which case |                 |            |          |
+| SED               | str        | Observed       | Some way that catalog       | We may end up needing to support   |                 | PhoSim     |          |
+|                   |            |                | generation code can         | SED basis functions, in which case |                 | recommended|          |
 |                   |            |                | associate the galaxy/       | we would need to specify the       |                 |            |          |
 |                   |            |                | component with an SED.      | library of basis functions and     |                 |            |          |
 |                   |            |                |                             | a list of weights used to recreate |                 |            |          |
@@ -118,8 +118,8 @@ results of their analysis tools).
 |                   |            |                |                             | an SED is a linear combination of  |                 |            |          |
 |                   |            |                |                             | basis functions.                   |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+------------------------------------+-----------------+------------+----------+
-| Normalization     | magnitudes | Observed       | Some way to normalize the   | The current scheme in CatSim is to |                 |            |          |
-|                   |            |                | SED.                        | store the rest-frame AB magnitude  |                 |            |          |
+| Normalization     | magnitudes | Observed       | Some way to normalize the   | The current scheme in CatSim is to |                 | PhoSim     |          |
+|                   |            |                | SED.                        | store the rest-frame AB magnitude  |                 | required   |          |
 |                   |            |                |                             | of the SED in a delta-function     |                 |            |          |
 |                   |            |                |                             | bandpass at 500nm.  This is the    |                 |            |          |
 |                   |            |                |                             | system that PhoSim uses.           |                 |            |          |

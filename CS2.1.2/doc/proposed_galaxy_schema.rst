@@ -9,6 +9,16 @@ science working groups to be able to use directly at the catalog level) or 'Trut
 physical truth which may be unobservable, but which we are delivering so that working groups can validate the
 results of their analysis tools).
 
+The following metadata will be expected for all cosmological simulations.
+
+- The cosmology used to generate the simulation.
+- Definitions (including units) for any columns included beyond the minimal schema.
+- Detailed explanation of the dust model internal to galaxies (if any) used.  This should include details of both implementation and parametrization.
+- A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
+- An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
+
+The minimal schema for cosmological simulations will be:
+
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Quantity          | Units      | Truth/Observed | Definition                  | Working Group   | Input      | Accuracy |
 |                   |            |                |                             | Use Case        | For...     | Required |
@@ -31,68 +41,44 @@ results of their analysis tools).
 | history if they want.                                                                                                   |
 |                                                                                                                         |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                 | PhoSim     |          |
+| RA, Dec           | degrees    | Observed       | ICRS.  Reckoned from the    |                 | PhoSim     |          |
 |                   | (decimal)  |                | flux-weighted centroid of   |                 | required   |          |
 |                   |            |                | the galaxy or galaxy        |                 |            |          |
 |                   |            |                | component.                  |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Dec               | degrees    | Observed       | ICRS.  Reckoned from the    |                 |            |          |
-|                   | (decimal)  |                | flux-weighted centroid of   |                 |            |          |
-|                   |            |                | the galaxy or galaxy        |                 |            |          |
-|                   |            |                | component.                  |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This could be (i.e. 'technically is') bandpass-dependent.                                                  |
+|dRA, dDec          | degrees    | Observed       | ICRS.  Displacement of a    |                 | PhoSim     |          |
+|                   | (decimal)  |                | single galaxy component's   |                 | optional   |          |
+|                   |            |                | centroid from the aggregate |                 |            |          |
+|                   |            |                | centroid.                   |                 |            |          |
+|                   |            |                |                             |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Redshift          | float      | Observed       | Observed heliocentric       |                 | PhoSim     |          |
+| **Comment:** RA, Dec, dRA, dDec could be (i.e. 'technically are') bandpass-dependent.                                   |
++-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+| Redshift          | float      | Truth          | Cosmological redshift       |                 | PhoSim     |          |
 |                   |            |                | redshift due to both the    |                 | optional   |          |
-|                   |            |                | Hubble flow and any         |                 |            |          |
-|                   |            |                | peculiar motion of the      |                 |            |          |
-|                   |            |                | galaxy.                     |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Sersic index      | float      | Observed       | Observed best fit Sersic    |                 | PhoSim     |          |
-|                   |            |                | index of the galaxy's       |                 | recommended|          |
-|                   |            |                | on-sky profile.             |                 |            |          |
+| Peculiar velocity | float      | Truth          | Velocity along the line of  |                 | PhoSim     |          |
+|                   |            |                | sight in units of redshift  |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** Every component of the galaxy will be fit to a Sersic profile.  The aggregate galaxy will also be          |
-| represented by the best-fit Sersic index for the whole system.  It has been pointed out that the Sersic index of the    |
-| entire system will be a poor fit. We may want to consider different profiles (e.g. mixtures of Gaussians or Moffatt     |
-| profiles).                                                                                                              |
+| Shape             | to be      | Observed       | Parametrization of a        |                 | PhoSim     |          |
+| parametrization   | determined |                | galaxy's shape (either a    |                 | recommended|          |
+|                   |            |                | Sersic index or something   |                 |            |          |
+|                   |            |                | more detailed)              |                 |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+| **Comment:** Every component of the galaxy will require shape information.  The aggregate galaxy will also be           |
+| represented by an aggregate shape for the whole system.                                                                 |
+|                                                                                                                         |
+| It has been pointed out that the Sersic index of the entire system will be a poor fit. We may want to consider          |
+| different profiles (e.g. mixtures of Gaussians or Moffatt profiles).                                                    |
 |                                                                                                                         |
 | Adrian Pope has volunteered to research different profiles and how easily they can be transformed into observable       |
 | quantities.                                                                                                             |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Semi-major axis   | milli-     | Observed       | The observed semi-major     |                 | PhoSim     |          |
-|                   | arcseconds |                | axis of the galaxy.         |                 | recommended|          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Semi-minor axis   | milli-     | Observed       | The observed semi-minor     |                 |            |          |
-|                   | arcseconds |                | axis of the galaxy.         |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** PhoSim works in arcseconds rather than milli-arcseconds.  This may be a more natural choice for units.     |
-|                                                                                                                         |
-| We need to define where these axes are defined (i.e. at a certain isophote?).                                           |
-|                                                                                                                         |
-| Elisa Chisari suggests we store several sets of axes at several isophotes so that we can interpolate a realistic        |
-| luminosity profile.                                                                                                     |
-|                                                                                                                         |
-| May be bandpass dependent.                                                                                              |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                 | PhoSim     |          |
 |                   | (decimal)  |                | axis eastward of North.     |                 | recommended|          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This would also require multiple values at multiple isophotes.                                             |
+| **Comment:** This would require multiple values at multiple isophotes.                                                  |
 |                                                                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Av                | magnitudes | Observed       | Extinction due to dust in   |                 | PhoSim     |          |
-|                   |            |                | the galaxy/component.       |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Rv                | magnitudes | Observed       | Reddenting due to dust in   |                 | PhoSim     |          |
-|                   |            |                | the galaxy/component.       |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Extinction model  | str        | Observed       | Model of extinction inside  |                 | PhoSim     |          |
-|                   |            |                | the galaxy (or galaxy       |                 | optional   |          |
-|                   |            |                | component).  Examples: CCM, |                 |            |          |
-|                   |            |                | O'Donnell,etc.              |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | SED               | str        | Observed       | Some way that catalog       | PZ1.1           | PhoSim     |          |
 |                   |            |                | generation code can         |                 | recommended|          |
@@ -131,63 +117,15 @@ results of their analysis tools).
 | y_ab              |            |                |                             |                 |            |          |
 |                   |            |                |                             |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Point_source_SED  | str        | Observed       | Some means of identifying   |                 |            |          |
-|                   |            |                | the SED of a point source   |                 |            |          |
-|                   |            |                | (e.g an AGN) associated     |                 |            |          |
-|                   |            |                | galaxy the galaxy/component |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** The same caveats apply here as applied to the SED column for the whole galaxy/component.                   |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Point_source_norm | magnitudes | Observed       | Some way to normalize the   |                 |            |          |
-|                   |            |                | point source SED.           |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** The same caveats apply here as applied to the normalization of the entire galaxy's SED.                    |
+| Extinction per    | AB         | Truth          | Magntitudes of total        |                 | Related to |          |
+| band              | magnitudes |                | extinction due to internal  |                 | optional   |          |
+|                   |            |                | dust in each LSST band      |                 | PhoSim     |          |
+|                   |            |                |                             |                 | parameters |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Inclination Angle | degrees    | Truth          | Inclination of the galaxy   |                 |            |          |
 |                   | (decimal)  |                | (or galaxy component)       |                 |            |          |
 |                   |            |                | relative to the line of     |                 |            |          |
 |                   |            |                | sight.                      |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Cosmological      | float      | Truth          | Heliocentric redshift due   |                 |            |          |
-| Redshift          |            |                | only to the Hubble flow.    |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This is truth information that allows users to disentangle redshift due to proper motion from              |
-| redshift due to the Hubble flow. We must be careful with our naming convention to make it obvious how this              |
-| differs from the total redshift column.                                                                                 |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Mass_gas          | Solar      | Truth          | The mass of the gas in the  | WL2.3.2         |            |          |
-|                   | masses     |                | galaxy/galaxy component.    |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+            |          |
-| Mass_stellar      | Solar      | Truth          | The mass of stars in the    | PZ: 1.1.2, DC2, |            |          |
-|                   | masses     |                | galaxy/component.           | DC3; WL2.3.2    |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+            |          |
-| Mass_halo         | Solar      | Truth          | The mass of the dark matter |                 |            |          |
-|                   | masses     |                | halo of the galaxy/component|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** It has been pointed out that not all simulations might be able to deliver these masses, in which           |
-| case they may not belong in the minimal schema.                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Bulge_to_total    | float      | Truth          | Ratio of the bolometric     |                 |            |          |
-|                   |            |                | flux from the galaxy's bulge|                 |            |          |
-|                   |            |                | to the total bolometric flux|                 |            |          |
-|                   |            |                | of the galaxy.              |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Disk_to_total     | float      | Truth          | Ratio of the bolometric flux|                 |            |          |
-|                   |            |                | from the galaxy's disk to   |                 |            |          |
-|                   |            |                | the total bolometric flux of|                 |            |          |
-|                   |            |                | the galaxy.                 |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** Bulge_to_total and Disk_to_total will not sum to unity in the presence of an AGN.                          |
-|                                                                                                                         |
-| What do we mean by 'bolometric'? Just in the range of LSST bandpasses?  In a single LSST bandpass?  Restframe or        |
-| observed?                                                                                                               |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to | CL1.1           |            |          |
-|                   | (decimal)  |                | the system's center of mass.|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 +------------+----------+
-| Barycentric_Dec   | degrees    | Truth          | ICRS.  Defined according to |                 |            |          |
-|                   | (decimal)  |                | the system's center of mass.|                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 
 Other quantities we might want to consider supporting:
@@ -197,3 +135,6 @@ Other quantities we might want to consider supporting:
 - Other characterizations of a galaxy's environment
 - Some way to associate clusters of galaxies with each other
 - Shear parameters (as defined/interpreted by PhoSim)
+- Inclination Angle
+- Barycentric RA, Dec
+- Mass due to stars, gas, and dark matter

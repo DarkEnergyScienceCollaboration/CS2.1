@@ -52,7 +52,7 @@ The minimal schema for cosmological simulations will be:
 |                   |            |                | centroid.                   |                 |            |          |
 |                   |            |                |                             |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This could be (i.e. 'technically is') bandpass-dependent.                                                  |
+| **Comment:** RA, Dec, dRA, dDec could be (i.e. 'technically are') bandpass-dependent.                                   |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Redshift          | float      | Truth          | Cosmological redshift       |                 | PhoSim     |          |
 |                   |            |                | redshift due to both the    |                 | optional   |          |

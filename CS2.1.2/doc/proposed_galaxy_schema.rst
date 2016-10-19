@@ -52,11 +52,11 @@ The following metadata will be expected for all cosmological simulations.
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | **Comment:** This could be (i.e. 'technically is') bandpass-dependent.                                                  |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Redshift          | float      | Observed       | Observed heliocentric       |                 | PhoSim     |          |
+| Redshift          | float      | Truth          | Cosmological redshift       |                 | PhoSim     |          |
 |                   |            |                | redshift due to both the    |                 | optional   |          |
-|                   |            |                | Hubble flow and any         |                 |            |          |
-|                   |            |                | peculiar motion of the      |                 |            |          |
-|                   |            |                | galaxy.                     |                 |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+| Peculiar velocity | float      | Truth          | Velocity along the line of  |                 | PhoSim     |          |
+|                   |            |                | sight in units of redshift  |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Sersic index      | float      | Observed       | Observed best fit Sersic    |                 | PhoSim     |          |
 |                   |            |                | index of the galaxy's       |                 | recommended|          |
@@ -157,13 +157,6 @@ The following metadata will be expected for all cosmological simulations.
 |                   | (decimal)  |                | (or galaxy component)       |                 |            |          |
 |                   |            |                | relative to the line of     |                 |            |          |
 |                   |            |                | sight.                      |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Cosmological      | float      | Truth          | Heliocentric redshift due   |                 |            |          |
-| Redshift          |            |                | only to the Hubble flow.    |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This is truth information that allows users to disentangle redshift due to proper motion from              |
-| redshift due to the Hubble flow. We must be careful with our naming convention to make it obvious how this              |
-| differs from the total redshift column.                                                                                 |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Mass_gas          | Solar      | Truth          | The mass of the gas in the  | WL2.3.2         |            |          |
 |                   | masses     |                | galaxy/galaxy component.    |                 |            |          |

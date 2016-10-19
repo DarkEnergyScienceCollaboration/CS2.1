@@ -120,19 +120,6 @@ The following metadata will be expected for all cosmological simulations.
 |                   |            |                | dust in each LSST band      |                 | PhoSim     |          |
 |                   |            |                |                             |                 | parameters |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Point_source_SED  | str        | Observed       | Some means of identifying   |                 |            |          |
-|                   |            |                | the SED of a point source   |                 |            |          |
-|                   |            |                | (e.g an AGN) associated     |                 |            |          |
-|                   |            |                | galaxy the galaxy/component |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** The same caveats apply here as applied to the SED column for the whole galaxy/component.                   |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Point_source_norm | magnitudes | Observed       | Some way to normalize the   |                 |            |          |
-|                   |            |                | point source SED.           |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** The same caveats apply here as applied to the normalization of the entire galaxy's SED.                    |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Inclination Angle | degrees    | Truth          | Inclination of the galaxy   |                 |            |          |
 |                   | (decimal)  |                | (or galaxy component)       |                 |            |          |
 |                   |            |                | relative to the line of     |                 |            |          |

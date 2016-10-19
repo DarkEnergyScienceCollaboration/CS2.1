@@ -125,21 +125,6 @@ The following metadata will be expected for all cosmological simulations.
 |                   |            |                | relative to the line of     |                 |            |          |
 |                   |            |                | sight.                      |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Bulge_to_total    | float      | Truth          | Ratio of the bolometric     |                 |            |          |
-|                   |            |                | flux from the galaxy's bulge|                 |            |          |
-|                   |            |                | to the total bolometric flux|                 |            |          |
-|                   |            |                | of the galaxy.              |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Disk_to_total     | float      | Truth          | Ratio of the bolometric flux|                 |            |          |
-|                   |            |                | from the galaxy's disk to   |                 |            |          |
-|                   |            |                | the total bolometric flux of|                 |            |          |
-|                   |            |                | the galaxy.                 |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** Bulge_to_total and Disk_to_total will not sum to unity in the presence of an AGN.                          |
-|                                                                                                                         |
-| What do we mean by 'bolometric'? Just in the range of LSST bandpasses?  In a single LSST bandpass?  Restframe or        |
-| observed?                                                                                                               |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to | CL1.1           |            |          |
 |                   | (decimal)  |                | the system's center of mass.|                 |            |          |
 +-------------------+------------+----------------+-----------------------------+                 +------------+----------+

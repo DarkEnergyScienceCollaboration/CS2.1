@@ -125,12 +125,6 @@ The following metadata will be expected for all cosmological simulations.
 |                   |            |                | relative to the line of     |                 |            |          |
 |                   |            |                | sight.                      |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to | CL1.1           |            |          |
-|                   | (decimal)  |                | the system's center of mass.|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 +------------+----------+
-| Barycentric_Dec   | degrees    | Truth          | ICRS.  Defined according to |                 |            |          |
-|                   | (decimal)  |                | the system's center of mass.|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 
 Other quantities we might want to consider supporting:
 

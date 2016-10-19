@@ -133,3 +133,6 @@ Other quantities we might want to consider supporting:
 - Other characterizations of a galaxy's environment
 - Some way to associate clusters of galaxies with each other
 - Shear parameters (as defined/interpreted by PhoSim)
+- Inclination Angle
+- Barycentric RA, Dec
+- Mass due to stars, gas, and dark matter

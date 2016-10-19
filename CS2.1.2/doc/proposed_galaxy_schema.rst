@@ -39,15 +39,16 @@ The following metadata will be expected for all cosmological simulations.
 | history if they want.                                                                                                   |
 |                                                                                                                         |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| RA                | degrees    | Observed       | ICRS.  Reckoned from the    |                 | PhoSim     |          |
+| RA, Dec           | degrees    | Observed       | ICRS.  Reckoned from the    |                 | PhoSim     |          |
 |                   | (decimal)  |                | flux-weighted centroid of   |                 | required   |          |
 |                   |            |                | the galaxy or galaxy        |                 |            |          |
 |                   |            |                | component.                  |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Dec               | degrees    | Observed       | ICRS.  Reckoned from the    |                 |            |          |
-|                   | (decimal)  |                | flux-weighted centroid of   |                 |            |          |
-|                   |            |                | the galaxy or galaxy        |                 |            |          |
-|                   |            |                | component.                  |                 |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+|dRA, dDec          | degrees    | Observed       | ICRS.  Displacement of a    |                 | PhoSim     |          |
+|                   | (decimal)  |                | single galaxy component's   |                 | optional   |          |
+|                   |            |                | centroid from the aggregate |                 |            |          |
+|                   |            |                | centroid.                   |                 |            |          |
+|                   |            |                |                             |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | **Comment:** This could be (i.e. 'technically is') bandpass-dependent.                                                  |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+

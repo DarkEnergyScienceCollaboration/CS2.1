@@ -58,14 +58,16 @@ The following metadata will be expected for all cosmological simulations.
 | Peculiar velocity | float      | Truth          | Velocity along the line of  |                 | PhoSim     |          |
 |                   |            |                | sight in units of redshift  |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Sersic index      | float      | Observed       | Observed best fit Sersic    |                 | PhoSim     |          |
-|                   |            |                | index of the galaxy's       |                 | recommended|          |
-|                   |            |                | on-sky profile.             |                 |            |          |
+| Shape             | to be      | Observed       | Parametrization of a        |                 | PhoSim     |          |
+| parametrization   | determined |                | galaxy's shape (either a    |                 | recommended|          |
+|                   |            |                | Sersic index or something   |                 |            |          |
+|                   |            |                | more detailed)              |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** Every component of the galaxy will be fit to a Sersic profile.  The aggregate galaxy will also be          |
-| represented by the best-fit Sersic index for the whole system.  It has been pointed out that the Sersic index of the    |
-| entire system will be a poor fit. We may want to consider different profiles (e.g. mixtures of Gaussians or Moffatt     |
-| profiles).                                                                                                              |
+| **Comment:** Every component of the galaxy will require shape information.  The aggregate galaxy will also be           |
+| represented by an aggregate shape for the whole system.                                                                 |
+|                                                                                                                         |
+| It has been pointed out that the Sersic index of the entire system will be a poor fit. We may want to consider          |
+| different profiles (e.g. mixtures of Gaussians or Moffatt profiles).                                                    |
 |                                                                                                                         |
 | Adrian Pope has volunteered to research different profiles and how easily they can be transformed into observable       |
 | quantities.                                                                                                             |

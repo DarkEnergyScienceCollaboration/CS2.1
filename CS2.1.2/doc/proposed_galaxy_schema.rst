@@ -17,6 +17,8 @@ The following metadata will be expected for all cosmological simulations.
 - A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
 - An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
 
+The minimal schema for cosmological simulations will be:
+
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Quantity          | Units      | Truth/Observed | Definition                  | Working Group   | Input      | Accuracy |
 |                   |            |                |                             | Use Case        | For...     | Required |

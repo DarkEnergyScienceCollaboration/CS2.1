@@ -125,18 +125,6 @@ The following metadata will be expected for all cosmological simulations.
 |                   |            |                | relative to the line of     |                 |            |          |
 |                   |            |                | sight.                      |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Mass_gas          | Solar      | Truth          | The mass of the gas in the  | WL2.3.2         |            |          |
-|                   | masses     |                | galaxy/galaxy component.    |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+            |          |
-| Mass_stellar      | Solar      | Truth          | The mass of stars in the    | PZ: 1.1.2, DC2, |            |          |
-|                   | masses     |                | galaxy/component.           | DC3; WL2.3.2    |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+            |          |
-| Mass_halo         | Solar      | Truth          | The mass of the dark matter |                 |            |          |
-|                   | masses     |                | halo of the galaxy/component|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** It has been pointed out that not all simulations might be able to deliver these masses, in which           |
-| case they may not belong in the minimal schema.                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Bulge_to_total    | float      | Truth          | Ratio of the bolometric     |                 |            |          |
 |                   |            |                | flux from the galaxy's bulge|                 |            |          |
 |                   |            |                | to the total bolometric flux|                 |            |          |

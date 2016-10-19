@@ -86,7 +86,7 @@ results of their analysis tools).
 | Av                | magnitudes | Observed       | Extinction due to dust in   |                 | PhoSim     |          |
 |                   |            |                | the galaxy/component.       |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Rv                | magnitudes | Observed       | Reddenting due to dust in   |                 | PhoSim     |          |
+| Rv                | magnitudes | Observed       | Reddening due to dust in    |                 | PhoSim     |          |
 |                   |            |                | the galaxy/component.       |                 | optional   |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Extinction model  | str        | Observed       | Model of extinction inside  |                 | PhoSim     |          |

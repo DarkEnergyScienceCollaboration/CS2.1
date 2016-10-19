@@ -78,17 +78,6 @@ The following metadata will be expected for all cosmological simulations.
 | **Comment:** This would require multiple values at multiple isophotes.                                                  |
 |                                                                                                                         |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Av                | magnitudes | Observed       | Extinction due to dust in   |                 | PhoSim     |          |
-|                   |            |                | the galaxy/component.       |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Rv                | magnitudes | Observed       | Reddening due to dust in    |                 | PhoSim     |          |
-|                   |            |                | the galaxy/component.       |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Extinction model  | str        | Observed       | Model of extinction inside  |                 | PhoSim     |          |
-|                   |            |                | the galaxy (or galaxy       |                 | optional   |          |
-|                   |            |                | component).  Examples: CCM, |                 |            |          |
-|                   |            |                | O'Donnell,etc.              |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | SED               | str        | Observed       | Some way that catalog       | PZ1.1           | PhoSim     |          |
 |                   |            |                | generation code can         |                 | recommended|          |
 |                   |            |                | associate the galaxy/       |                 |            |          |
@@ -125,6 +114,11 @@ The following metadata will be expected for all cosmological simulations.
 +-------------------+            |                |                             |                 |            |          |
 | y_ab              |            |                |                             |                 |            |          |
 |                   |            |                |                             |                 |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+| Extinction per    | AB         | Truth          | Magntitudes of total        |                 | Related to |          |
+| band              | magnitudes |                | extinction due to internal  |                 | optional   |          |
+|                   |            |                | dust in each LSST band      |                 | PhoSim     |          |
+|                   |            |                |                             |                 | parameters |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Point_source_SED  | str        | Observed       | Some means of identifying   |                 |            |          |
 |                   |            |                | the SED of a point source   |                 |            |          |

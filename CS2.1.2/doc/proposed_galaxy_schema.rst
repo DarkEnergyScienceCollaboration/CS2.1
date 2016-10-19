@@ -72,26 +72,10 @@ The following metadata will be expected for all cosmological simulations.
 | Adrian Pope has volunteered to research different profiles and how easily they can be transformed into observable       |
 | quantities.                                                                                                             |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Semi-major axis   | milli-     | Observed       | The observed semi-major     |                 | PhoSim     |          |
-|                   | arcseconds |                | axis of the galaxy.         |                 | recommended|          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Semi-minor axis   | milli-     | Observed       | The observed semi-minor     |                 |            |          |
-|                   | arcseconds |                | axis of the galaxy.         |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** PhoSim works in arcseconds rather than milli-arcseconds.  This may be a more natural choice for units.     |
-|                                                                                                                         |
-| We need to define where these axes are defined (i.e. at a certain isophote?).                                           |
-|                                                                                                                         |
-| Elisa Chisari suggests we store several sets of axes at several isophotes so that we can interpolate a realistic        |
-| luminosity profile.                                                                                                     |
-|                                                                                                                         |
-| May be bandpass dependent.                                                                                              |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                 | PhoSim     |          |
 |                   | (decimal)  |                | axis eastward of North.     |                 | recommended|          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This would also require multiple values at multiple isophotes.                                             |
+| **Comment:** This would require multiple values at multiple isophotes.                                                  |
 |                                                                                                                         |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Av                | magnitudes | Observed       | Extinction due to dust in   |                 | PhoSim     |          |

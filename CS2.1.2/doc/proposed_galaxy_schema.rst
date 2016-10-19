@@ -9,6 +9,15 @@ science working groups to be able to use directly at the catalog level) or 'Trut
 physical truth which may be unobservable, but which we are delivering so that working groups can validate the
 results of their analysis tools).
 
+The following metadata will be expected for all cosmological simulations.
+
+- The cosmology used to generate the simulation.
+- Definitions (including units) for any columns included beyond the minimal schema.
+- Detailed explanation of the dust model internal to galaxies (if any) used.  This should include details of
+both implementation and parametrization.
+- A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
+- An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
+
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
 | Quantity          | Units      | Truth/Observed | Definition                  | Working Group   | Input      | Accuracy |
 |                   |            |                |                             | Use Case        | For...     | Required |

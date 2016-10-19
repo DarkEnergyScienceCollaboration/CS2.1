@@ -94,7 +94,7 @@ results of their analysis tools).
 |                   |            |                | component).  Examples: CCM, |                 |            |          |
 |                   |            |                | O'Donnell,etc.              |                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| SED               | str        | Observed       | Some way that catalog       |                 | PhoSim     |          |
+| SED               | str        | Observed       | Some way that catalog       | PZ1.1           | PhoSim     |          |
 |                   |            |                | generation code can         |                 | recommended|          |
 |                   |            |                | associate the galaxy/       |                 |            |          |
 |                   |            |                | component with an SED.      |                 |            |          |
@@ -156,12 +156,12 @@ results of their analysis tools).
 | redshift due to the Hubble flow. We must be careful with our naming convention to make it obvious how this              |
 | differs from the total redshift column.                                                                                 |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Mass_gas          | Solar      | Truth          | The mass of the gas in the  |                 |            |          |
+| Mass_gas          | Solar      | Truth          | The mass of the gas in the  | WL2.3.2         |            |          |
 |                   | masses     |                | galaxy/galaxy component.    |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
-| Mass_stellar      | Solar      | Truth          | The mass of stars in the    |                 |            |          |
-|                   | masses     |                | galaxy/component.           |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+                 |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+            |          |
+| Mass_stellar      | Solar      | Truth          | The mass of stars in the    | PZ: 1.1.2, DC2, |            |          |
+|                   | masses     |                | galaxy/component.           | DC3; WL2.3.2    |            |          |
++-------------------+------------+----------------+-----------------------------+-----------------+            |          |
 | Mass_halo         | Solar      | Truth          | The mass of the dark matter |                 |            |          |
 |                   | masses     |                | halo of the galaxy/component|                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
@@ -183,9 +183,9 @@ results of their analysis tools).
 | What do we mean by 'bolometric'? Just in the range of LSST bandpasses?  In a single LSST bandpass?  Restframe or        |
 | observed?                                                                                                               |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to |                 |            |          |
+| Barycentric_RA    | degrees    | Truth          | ICRS.  Defined according to | CL1.1           |            |          |
 |                   | (decimal)  |                | the system's center of mass.|                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
++-------------------+------------+----------------+-----------------------------+                 +------------+----------+
 | Barycentric_Dec   | degrees    | Truth          | ICRS.  Defined according to |                 |            |          |
 |                   | (decimal)  |                | the system's center of mass.|                 |            |          |
 +-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+

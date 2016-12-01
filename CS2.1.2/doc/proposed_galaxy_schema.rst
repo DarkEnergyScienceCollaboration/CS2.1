@@ -33,6 +33,45 @@ The minimal schema for cosmological simulations will be:
 - Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
   the same galaxy with each other
 
+- Right ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured for the flux-weighted centroid of the galaxy/component.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measures for the flux-weighted centroid of the galaxy/component.
+
+- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
+  peculiar motion.
+
+- SED -- a pointer to the SED file in the provided library (see metadata above)
+  associated with the galaxy/component (can neglect internal extinction, which
+  is parametrized below).
+
+- Flux normalization -- unitless -- the multiplicative factor by which to multiply
+  the SED to get the observed magnitudes of the galaxy/component (applied before
+  internal dust extinction).
+
+- Profile Type -- specification of the shape model used for the galaxy/component
+  (e.g. Sersic, Mixture of Gaussians, etc.).
+
+- Profile Parameters -- parameters needed to specify the galaxy's shape, given the profile.
+
+- Semi-Major Axis -- arcseconds -- half light radius of the galaxy/component semi-major axis.
+
+- Semi-Minor Axis -- arcseconds -- half light radius ofthe galaxy/component's semi-minor axis.
+
+- Internal Extinction Model -- specification of the dust law (CCM, O'Donnell, etc.) used to
+  model extinction due to dust internal to the galaxy/component (set to 'None' if extinction
+  is accounted for in the galaxy/component's model SED).
+
+- Internal Extinction Parameters -- parameters (Av, Rv, etc.) needed to apply the extinction
+  model to the galaxy/component's SED.
+
+- Shear 1 -- unitless -- first weak lensing shear parameter.
+
+- Shear 2 -- unitless -- second weak lensing shear parameter.
+
+- Magnification -- unitless -- weaklensing magnification parameter.
+
 Other quantities we might want to consider supporting:
 
 - Halo mass profile parameters

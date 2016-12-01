@@ -31,7 +31,7 @@ The minimal schema for cosmological simulations will be:
 - Row identifier -- an identifying integer that is unique to each component of a galaxy.
 
 - Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
-the same galaxy with each other
+  the same galaxy with each other
 
 Other quantities we might want to consider supporting:
 

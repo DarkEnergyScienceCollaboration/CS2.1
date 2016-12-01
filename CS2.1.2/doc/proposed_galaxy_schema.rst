@@ -23,7 +23,7 @@ The following metadata will be expected for all cosmological simulations.
 - A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
 - An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
 
-Internal Schema:
+## Internal Schema
 
 - Row identifier -- an identifying integer that is unique to each component of a galaxy.
 
@@ -50,7 +50,7 @@ Internal Schema:
 - Flux -- either the flux of the galaxy/component in the nominal LSST bands or the
   model SED plus a normalization.
 
-External Schema:
+## External Schema
 
 - Row identifier -- an identifying integer that is unique to each component of a galaxy.
 
@@ -98,6 +98,8 @@ External Schema:
 
 - Convergence -- unitless -- weaklensing convergence parameter.
 
+## Summary Table
+
 The CS working group will also construct a summary table which treats galaxies as a whole,
 aggregating their components.  The schema for this table will be:
 
@@ -116,6 +118,8 @@ aggregating their components.  The schema for this table will be:
   semi-minor axes from above).  *Should we apply weak lensing shear?*
 
 - Size -- model TBD
+
+## Halo Table
 
 Finally, there will be an optional table containing information about the Dark Matter
 halos containing each galaxy.  Its schema will be:

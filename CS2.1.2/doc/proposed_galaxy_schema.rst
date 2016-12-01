@@ -1,13 +1,22 @@
-This schema is meant to provide definitions for quantities we expect simulated catalogs to contain.  Not every
-catalog will contain every quantity in this schema, however, when they do, we hope that they will adhere to the
-definitions below.  Put another way: a catalog may not characterize the shapes of galaxies, but if it does, it will
-do so as specified below.  The schema is agnostic to the question of how the data is delivered (it can be a database,
-a text file, a FITS file, or something else unthought of).  The schema merely speaks to the contents of the files
-being delivered.  This is so that DESC science working groups can write their software tools confident in what inputs
-they will be receiving.  Quantities are marked as either 'Observed' (in which case they are quantities that we expect
-science working groups to be able to use directly at the catalog level) or 'Truth' (in which case they represent
-physical truth which may be unobservable, but which we are delivering so that working groups can validate the
-results of their analysis tools).
+This schema is meant to provide definitions for quantities which the Cosmological Simulations (CS) working group
+will present to the broader collaboration.  Individual simulations will be provided to the CS working group
+in the "Internal Schema".  The CS working group will provide software tools to translate the "Internal Schema"
+into the publicly-facing "External Schema".  That being said, not every catalog will contain data necessary
+to calculate every quantity in this schema (e.g. not every simuation may treat internal dust extinction within
+each galaxy), however, when they do, the publicly facing schema will adhere to the definitions below.  Put another
+way: a catalog may not characterize the shapes of galaxies, but if it does, the CS working group will translate those shape
+characterizations into the definitions provided below.  The schema is agnostic to the question of how the data is
+delivered (it can be a database,a text file, a FITS file, or something else unthought of).  The schema merely speaks to
+the contents of the files being delivered.  This is so that DESC science working groups can write their software tools
+confident in what inputs they will be receiving.
+
+Some simulations model galaxies as multiple components (bulge, disk, AGN).  In those cases, each component of each
+galaxy will be represented by an individual row in the schema.  The rows will contain an identifying integer which
+is unique to each galaxy (not unique to each component), which will allow users to associate components that come
+from the same galaxy with each other.
+
+Metadata
+--------
 
 The following metadata will be expected for all cosmological simulations.
 
@@ -17,124 +26,119 @@ The following metadata will be expected for all cosmological simulations.
 - A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
 - An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
 
-The minimal schema for cosmological simulations will be:
+Internal Schema
+---------------
 
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Quantity          | Units      | Truth/Observed | Definition                  | Working Group   | Input      | Accuracy |
-|                   |            |                |                             | Use Case        | For...     | Required |
-+===================+============+================+=============================+=================+============+==========+
-| ID                | int        | Observed       | A unique identifier for     |                 | PhoSim     |          |
-|                   |            |                | every galaxy in the catalog.|                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** We must determine how to handle unique IDs in the case of compound systems                                 |
-| (both multi-component galaxies and multiply-lensed images).  The two most straightforward options are:                  |
-|                                                                                                                         |
-| 1) Deliver multiple tables/files, one file for each component (and one for the aggregate system). Each component of     |
-| a single system will reside in a different table. Components of the same system will share an ID across tables.         |
-| **The idea of an aggregate system does not make sense for multiply-lensed images.**                                     |
-|                                                                                                                         |
-|                                                                                                                         |
-| 2) In addition to ID, each object will contain a ParentID linking it to its sibling components and                      |
-| (if applicable) the aggregate system.                                                                                   |
-|                                                                                                                         |
-| We may also want to keep track of the halo ID from the simulation so that users can reconstruct the merger              |
-| history if they want.                                                                                                   |
-|                                                                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| RA, Dec           | degrees    | Observed       | ICRS.  Reckoned from the    |                 | PhoSim     |          |
-|                   | (decimal)  |                | flux-weighted centroid of   |                 | required   |          |
-|                   |            |                | the galaxy or galaxy        |                 |            |          |
-|                   |            |                | component.                  |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-|dRA, dDec          | degrees    | Observed       | ICRS.  Displacement of a    |                 | PhoSim     |          |
-|                   | (decimal)  |                | single galaxy component's   |                 | optional   |          |
-|                   |            |                | centroid from the aggregate |                 |            |          |
-|                   |            |                | centroid.                   |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** RA, Dec, dRA, dDec could be (i.e. 'technically are') bandpass-dependent.                                   |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Redshift          | float      | Truth          | Cosmological redshift       |                 | PhoSim     |          |
-|                   |            |                | redshift due to both the    |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Peculiar velocity | float      | Truth          | Velocity along the line of  |                 | PhoSim     |          |
-|                   |            |                | sight in units of redshift  |                 | optional   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Shape             | to be      | Observed       | Parametrization of a        |                 | PhoSim     |          |
-| parametrization   | determined |                | galaxy's shape (either a    |                 | recommended|          |
-|                   |            |                | Sersic index or something   |                 |            |          |
-|                   |            |                | more detailed)              |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** Every component of the galaxy will require shape information.  The aggregate galaxy will also be           |
-| represented by an aggregate shape for the whole system.                                                                 |
-|                                                                                                                         |
-| It has been pointed out that the Sersic index of the entire system will be a poor fit. We may want to consider          |
-| different profiles (e.g. mixtures of Gaussians or Moffatt profiles).                                                    |
-|                                                                                                                         |
-| Adrian Pope has volunteered to research different profiles and how easily they can be transformed into observable       |
-| quantities.                                                                                                             |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Position Angle    | degrees    | Observed       | Rotation of the semi-major  |                 | PhoSim     |          |
-|                   | (decimal)  |                | axis eastward of North.     |                 | recommended|          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** This would require multiple values at multiple isophotes.                                                  |
-|                                                                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| SED               | str        | Observed       | Some way that catalog       | PZ1.1           | PhoSim     |          |
-|                   |            |                | generation code can         |                 | recommended|          |
-|                   |            |                | associate the galaxy/       |                 |            |          |
-|                   |            |                | component with an SED.      |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** We may end up needing to support SED basis functions, in which case we would need to specify               |
-| the library of basis functions and a list of weights used to recreate the SED.                                          |
-|                                                                                                                         |
-| We can also provide support for multiple SED and Normalization columns as a way to specify that an SED is a             |
-| linear combination of basis functions.                                                                                  |
-|                                                                                                                         |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Normalization     | magnitudes | Observed       | Some way to normalize the   |                 | PhoSim     |          |
-|                   |            |                | SED.                        |                 | required   |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| **Comment:** The current scheme in CatSim is to store the rest-frame AB magnitude of the SED in a delta-function        |
-| bandpass at 500nm.  This is the system that PhoSim uses. Unfortunately, it fails in the case where the SED has          |
-| zero flux at 500nm.                                                                                                     |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| u_ab              | AB         | Observed       | Above-the-atmosphere AB     |                 |            |          |
-|                   | magnitudes |                | magnitude in LSST filters.  |                 |            |          |
-+-------------------+            |                | Extincted by internal dust. |                 |            |          |
-| g_ab              |            |                | Unextincted by the Milky    |                 |            |          |
-|                   |            |                | Way.  Includes mean AGN     |                 |            |          |
-+-------------------+            |                | flux.                       |                 |            |          |
-| r_ab              |            |                |                             |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+            |                |                             |                 |            |          |
-| i_ab              |            |                |                             |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+            |                |                             |                 |            |          |
-| z_ab              |            |                |                             |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+            |                |                             |                 |            |          |
-| y_ab              |            |                |                             |                 |            |          |
-|                   |            |                |                             |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Extinction per    | AB         | Truth          | Magntitudes of total        |                 | Related to |          |
-| band              | magnitudes |                | extinction due to internal  |                 | optional   |          |
-|                   |            |                | dust in each LSST band      |                 | PhoSim     |          |
-|                   |            |                |                             |                 | parameters |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
-| Inclination Angle | degrees    | Truth          | Inclination of the galaxy   |                 |            |          |
-|                   | (decimal)  |                | (or galaxy component)       |                 |            |          |
-|                   |            |                | relative to the line of     |                 |            |          |
-|                   |            |                | sight.                      |                 |            |          |
-+-------------------+------------+----------------+-----------------------------+-----------------+------------+----------+
+- Row identifier -- an identifying integer that is unique to each component of a galaxy.
 
-Other quantities we might want to consider supporting:
+- Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
+  the same galaxy with each other
 
-- Halo mass profile parameters
-- Distance from center of dark matter halo
-- Other characterizations of a galaxy's environment
-- Some way to associate clusters of galaxies with each other
-- Shear parameters (as defined/interpreted by PhoSim)
-- Inclination Angle
-- Barycentric RA, Dec
-- Mass due to stars, gas, and dark matter
+- Halo identifier -- an identifying integer unique to the Dark Matter halo containing the galaxy.
+
+- Right ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured for the barycenter of the galaxy/component.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measures for the barycenter of the galaxy/component.
+
+- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
+  peculiar motion.
+
+- Size -- model TBD
+
+- True Shape -- model TBD
+
+- Observed Shape -- model TBD
+
+- Flux -- either the flux of the galaxy/component in the nominal LSST bands or the
+  model SED plus a normalization.
+
+External Schema
+---------------
+
+- Row identifier -- an identifying integer that is unique to each component of a galaxy.
+
+- Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
+  the same galaxy with each other
+
+- Halo identifier -- an identifying integer unique to the Dark Matter halo containing the galaxy.
+
+- Right ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured for the barycenter of the galaxy/component.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measures for the barycenter of the galaxy/component.
+
+- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
+  peculiar motion.
+
+- SED -- a pointer to the SED file in the provided library (see metadata above)
+  associated with the galaxy/component (can neglect internal extinction, which
+  is parametrized below).
+
+- Flux normalization -- unitless -- the multiplicative factor by which to multiply
+  the SED to get the observed magnitudes of the galaxy/component (applied before
+  internal dust extinction).
+
+- Profile Type -- specification of the shape model used for the galaxy/component
+  (e.g. Sersic, Mixture of Gaussians, etc.).
+
+- Profile Parameters -- parameters needed to specify the galaxy's shape, given the profile.
+
+- Semi-Major Axis -- arcseconds -- half light radius of the galaxy/component semi-major axis.
+
+- Semi-Minor Axis -- arcseconds -- half light radius ofthe galaxy/component's semi-minor axis.
+
+- Internal Extinction Model -- specification of the dust law (CCM, O'Donnell, etc.) used to
+  model extinction due to dust internal to the galaxy/component (set to 'None' if extinction
+  is accounted for in the galaxy/component's model SED).
+
+- Internal Extinction Parameters -- parameters (Av, Rv, etc.) needed to apply the extinction
+  model to the galaxy/component's SED.
+
+- Shear 1 -- unitless -- first weak lensing shear parameter.
+
+- Shear 2 -- unitless -- second weak lensing shear parameter.
+
+- Convergence -- unitless -- weaklensing convergence parameter.
+
+Summary Table
+-------------
+
+The CS working group will also construct a summary table which treats galaxies as a whole,
+aggregating their components.  The schema for this table will be:
+
+- Galaxy identifier -- a unique integer.  The same as listed above for individual galaxy compoents.
+
+- Right Ascension -- decimal degrees -- in the International Celestial Reference System.  Measured
+  at the flux-weighted centroid of the total galaxy.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.  Measured
+  at the flux-weighted centroid of the total galaxy.
+
+- Magnitudes -- observed magnitudes of the total galaxy in nominal LSST bands (ignore Milky Way dust;
+  apply internal dust)
+
+- Ellipticity -- the eccentricity of the galaxy's profile on the sky (use semi-major and
+  semi-minor axes from above).  *Should we apply weak lensing shear?*
+
+- Size -- model TBD
+
+Halo Table
+----------
+
+Finally, there will be an optional table containing information about the Dark Matter
+halos containing each galaxy.  Its schema will be:
+
+- Halo identifier -- a unique integer allowing users to associate galaxies to their halos.
+
+- Right Ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured from the barycenter of the halo.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measured from the barycenter of the halo.
+
+- Redshift -- unitless -- due to the Hubble flow
+
+- Mass -- in 10^10 solar masses.

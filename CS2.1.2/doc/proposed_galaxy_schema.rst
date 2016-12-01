@@ -98,7 +98,7 @@ The following metadata will be expected for all cosmological simulations.
 
 - Convergence -- unitless -- weaklensing convergence parameter.
 
-## Summary Table
+##Summary Table
 
 The CS working group will also construct a summary table which treats galaxies as a whole,
 aggregating their components.  The schema for this table will be:

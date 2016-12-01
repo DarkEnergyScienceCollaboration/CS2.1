@@ -1,17 +1,14 @@
 This schema is meant to provide definitions for quantities which the Cosmological Simulations (CS) working group
-will present to the broader collaboration.  Individual cosmological simulations may be generated with their
-own native schemas.  In that case, the CS working group will provide software tools to translate that native
-schema into the publicly-facing schema presented blow.  That being said, not every catalog will contain data necessary
+will present to the broader collaboration.  Individual simulations will be provided to the CS working group
+in the "Internal Schema".  The CS working group will provide software tools to translate the "Internal Schema"
+into the publicly-facing "External Schema".  That being said, not every catalog will contain data necessary
 to calculate every quantity in this schema (e.g. not every simuation may treat internal dust extinction within
 each galaxy), however, when they do, the publicly facing schema will adhere to the definitions below.  Put another
 way: a catalog may not characterize the shapes of galaxies, but if it does, the CS working group will translate those shape
 characterizations into the definitions provided below.  The schema is agnostic to the question of how the data is
 delivered (it can be a database,a text file, a FITS file, or something else unthought of).  The schema merely speaks to
 the contents of the files being delivered.  This is so that DESC science working groups can write their software tools
-confident in what inputs they will be receiving.  Quantities are marked as either 'Observed' (in which case they are
-quantities that we expect science working groups to be able to use directly at the catalog level) or 'Truth' (in which
-case they represent physical truth which may be unobservable, but which we are delivering so that working groups can
-validate the results of their analysis tools).
+confident in what inputs they will be receiving.
 
 Some simulations model galaxies as multiple components (bulge, disk, AGN).  In those cases, each component of each
 galaxy will be represented by an individual row in the schema.  The rows will contain an identifying integer which
@@ -26,18 +23,47 @@ The following metadata will be expected for all cosmological simulations.
 - A library (or a pointer to a library) of SEDs associated with each galaxy (if applicable).
 - An indication of the specific version of the LSST bandpass throughputs used to calculate magnitudes.
 
-The minimal schema for cosmological simulations will be:
+Internal Schema:
 
 - Row identifier -- an identifying integer that is unique to each component of a galaxy.
 
 - Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
   the same galaxy with each other
 
+- Halo identifier -- an identifying integer unique to the Dark Matter halo containing the galaxy.
+
 - Right ascension -- decimal degrees -- in the International Celestial Reference System.
-  Measured for the flux-weighted centroid of the galaxy/component.
+  Measured for the barycenter of the galaxy/component.
 
 - Declination -- decimal degrees -- in the International Celestial Reference System.
-  Measures for the flux-weighted centroid of the galaxy/component.
+  Measures for the barycenter of the galaxy/component.
+
+- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
+  peculiar motion.
+
+- Size -- model TBD
+
+- True Shape -- model TBD
+
+- Observed Shape -- model TBD
+
+- Flux -- either the flux of the galaxy/component in the nominal LSST bands or the
+  model SED plus a normalization.
+
+External Schema:
+
+- Row identifier -- an identifying integer that is unique to each component of a galaxy.
+
+- Galaxy identifier -- an identifying integer that is unique to each galaxy and associates components of
+  the same galaxy with each other
+
+- Halo identifier -- an identifying integer unique to the Dark Matter halo containing the galaxy.
+
+- Right ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured for the barycenter of the galaxy/component.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measures for the barycenter of the galaxy/component.
 
 - Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
   peculiar motion.
@@ -70,15 +96,38 @@ The minimal schema for cosmological simulations will be:
 
 - Shear 2 -- unitless -- second weak lensing shear parameter.
 
-- Magnification -- unitless -- weaklensing magnification parameter.
+- Convergence -- unitless -- weaklensing convergence parameter.
 
-Other quantities we might want to consider supporting:
+The CS working group will also construct a summary table which treats galaxies as a whole,
+aggregating their components.  The schema for this table will be:
 
-- Halo mass profile parameters
-- Distance from center of dark matter halo
-- Other characterizations of a galaxy's environment
-- Some way to associate clusters of galaxies with each other
-- Shear parameters (as defined/interpreted by PhoSim)
-- Inclination Angle
-- Barycentric RA, Dec
-- Mass due to stars, gas, and dark matter
+- Galaxy identifier -- a unique integer.  The same as listed above for individual galaxy compoents.
+
+- Right Ascension -- decimal degrees -- in the International Celestial Reference System.  Measured
+  at the flux-weighted centroid of the total galaxy.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.  Measured
+  at the flux-weighted centroid of the total galaxy.
+
+- Magnitudes -- observed magnitudes of the total galaxy in nominal LSST bands (ignore Milky Way dust;
+  apply internal dust)
+
+- Ellipticity -- the eccentricity of the galaxy's profile on the sky (use semi-major and
+  semi-minor axes from above).  *Should we apply weak lensing shear?*
+
+- Size -- model TBD
+
+Finally, there will be an optional table containing information about the Dark Matter
+halos containing each galaxy.  Its schema will be:
+
+- Halo identifier -- a unique integer allowing users to associate galaxies to their halos.
+
+- Right Ascension -- decimal degrees -- in the International Celestial Reference System.
+  Measured from the barycenter of the halo.
+
+- Declination -- decimal degrees -- in the International Celestial Reference System.
+  Measured from the barycenter of the halo.
+
+- Redshift -- unitless -- due to the Hubble flow
+
+- Mass -- in 10^10 solar masses.

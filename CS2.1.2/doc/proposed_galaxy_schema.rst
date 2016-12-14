@@ -47,9 +47,13 @@ Internal Schema
 
 - Size -- model TBD
 
-- True Shape -- model TBD
+- True Shape -- model TBD; this will encode the intrinsicellipticity of the object
+  (something like a semi-major and semi-minor axis)
 
-- Observed Shape -- model TBD
+- Observed Shape -- model TBD; this wil encode the light profile of the object
+  (something like a Sersic profile).  The final, observed object on the sky will
+  be achieved by drawing a circular object with the specified profile and then warping
+  it to have the ellipticity specified by the True Shape (for example).
 
 - Flux -- either the flux of the galaxy/component in the nominal LSST bands or the
   model SED plus a normalization.

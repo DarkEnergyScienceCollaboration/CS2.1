@@ -42,8 +42,9 @@ Internal Schema
 - Declination -- decimal degrees -- in the International Celestial Reference System.
   Measures for the barycenter of the galaxy/component.
 
-- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
-  peculiar motion.
+- Cosmological Redshift -- unitless
+
+- Redshift due to proper motion -- unitless
 
 - Size -- model TBD
 
@@ -74,8 +75,12 @@ External Schema
 - Declination -- decimal degrees -- in the International Celestial Reference System.
   Measures for the barycenter of the galaxy/component.
 
-- Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
+- Observed Redshift -- unitless -- Due to both the Hubble flow and the galaxy/component's
   peculiar motion.
+
+- Cosmological Redshift -- unitless -- just the Hubble flow
+
+- Redshift due to proper motion -- unitless
 
 - SED -- a pointer to the SED file in the provided library (see metadata above)
   associated with the galaxy/component (can neglect internal extinction, which
@@ -128,6 +133,12 @@ aggregating their components.  The schema for this table will be:
   semi-minor axes from above).  *Should we apply weak lensing shear?*
 
 - Size -- model TBD
+
+- Observed Redshift -- unitless -- due to both the Hubble flow and the galaxy's proper motion
+
+- Cosmological Redshift -- unitless
+
+- Redshift due to proper motion -- unitless
 
 Halo Table
 ----------

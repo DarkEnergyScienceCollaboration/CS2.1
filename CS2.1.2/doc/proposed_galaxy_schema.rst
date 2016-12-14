@@ -59,6 +59,12 @@ Internal Schema
 - Flux -- either the flux of the galaxy/component in the nominal LSST bands or the
   model SED plus a normalization.
 
+- Shear 1 -- unitless -- first weak lensing shear parameter.
+
+- Shear 2 -- unitless -- second weak lensing shear parameter.
+
+- Convergence -- unitless -- weaklensing convergence parameter.
+
 External Schema
 ---------------
 
@@ -139,6 +145,12 @@ aggregating their components.  The schema for this table will be:
 - Cosmological Redshift -- unitless
 
 - Redshift due to proper motion -- unitless
+
+- Shear 1 -- unitless -- first weak lensing shear parameter.
+
+- Shear 2 -- unitless -- second weak lensing shear parameter.
+
+- Convergence -- unitless -- weaklensing convergence parameter.
 
 Halo Table
 ----------
